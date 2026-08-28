@@ -1,0 +1,5 @@
+﻿services:
+  - type: web
+    name: xem-phim-luan-2026
+    env: docker
+    plan: free
