@@ -1,8 +1,9 @@
 services:
-  - type: static_site
+  - type: web
     name: xem-phim-luan-2026
+    env: static
     buildCommand: npm install --legacy-peer-deps && npm run build
-    publishPath: build
+    staticPublishPath: ./build
     envVars:
       - key: NODE_OPTIONS
         value: --openssl-legacy-provider
