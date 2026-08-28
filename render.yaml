@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: xem-phim-luan-2026
+    name: xem-phim-sieu-toc
     env: static
     buildCommand: npm install --legacy-peer-deps && npm run build
     staticPublishPath: ./build
