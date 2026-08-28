@@ -34,21 +34,21 @@ const Watch = () => {
         getDetail();
     }, [category, id]);
 
-    // Danh sách nguồn phát phim không quảng cáo & có vietsub
+    // Danh sách nguồn phát phim (đã đổi tránh nhà mạng chặn)
     const getEmbedUrl = () => {
         if (category === cate.movie) {
             switch (currentServer) {
-                case 'server1': return `https://vidlink.pro/movie/${id}?primaryColor=ff0000&secondaryColor=ff0000`;
-                case 'server2': return `https://vidsrc.me/embed/movie?tmdb=${id}`;
-                case 'server3': return `https://embed.su/embed/movie/${id}`;
-                default: return `https://vidlink.pro/movie/${id}?primaryColor=ff0000&secondaryColor=ff0000`;
+                case 'server1': return `https://vidsrc.me/embed/movie?tmdb=${id}`;
+                case 'server2': return `https://vidsrc.in/embed/movie?tmdb=${id}`;
+                case 'server3': return `https://vidlink.pro/movie/${id}`;
+                default: return `https://vidsrc.me/embed/movie?tmdb=${id}`;
             }
         } else {
             switch (currentServer) {
-                case 'server1': return `https://vidlink.pro/tv/${id}/${currentSeason}/${currentEpisode}?primaryColor=ff0000&secondaryColor=ff0000`;
-                case 'server2': return `https://vidsrc.me/embed/tv?tmdb=${id}&season=${currentSeason}&episode=${currentEpisode}`;
-                case 'server3': return `https://embed.su/embed/tv/${id}/${currentSeason}/${currentEpisode}`;
-                default: return `https://vidlink.pro/tv/${id}/${currentSeason}/${currentEpisode}?primaryColor=ff0000&secondaryColor=ff0000`;
+                case 'server1': return `https://vidsrc.me/embed/tv?tmdb=${id}&season=${currentSeason}&episode=${currentEpisode}`;
+                case 'server2': return `https://vidsrc.in/embed/tv?tmdb=${id}&season=${currentSeason}&episode=${currentEpisode}`;
+                case 'server3': return `https://vidlink.pro/tv/${id}/${currentSeason}/${currentEpisode}`;
+                default: return `https://vidsrc.me/embed/tv?tmdb=${id}&season=${currentSeason}&episode=${currentEpisode}`;
             }
         }
     };
