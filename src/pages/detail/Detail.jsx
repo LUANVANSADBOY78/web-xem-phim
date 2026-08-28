@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router-dom';
 
 import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
@@ -14,6 +14,7 @@ import Button from '../../components/button/Button';
 
 const Detail = () => {
     const { category, id } = useParams();
+    const history = useHistory();
     const [item, setItem] = useState(null);
 
     useEffect(() => {
@@ -82,7 +83,7 @@ const Detail = () => {
 
                 <div className="watch-btn">
                     <Button 
-                        onClick={() => window.location.href = `/${category}/${item.id}/watch`}
+                        onClick={() => history.push(`/${category}/${item.id}/watch`)}
                     >
                         XEM PHIM
                     </Button>
