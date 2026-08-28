@@ -12,7 +12,7 @@ import Routes from './config/Routes';
 
 function App() {
   return (
-    <BrowserRouter basename="/web-xem-phim">
+    <BrowserRouter>
       <Route render={props => (
         <>
           <Header {...props}/>

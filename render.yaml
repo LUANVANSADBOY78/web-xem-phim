@@ -1,5 +1,12 @@
-﻿services:
-  - type: web
+services:
+  - type: static_site
     name: xem-phim-luan-2026
-    env: docker
-    plan: free
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    publishPath: build
+    envVars:
+      - key: NODE_OPTIONS
+        value: --openssl-legacy-provider
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
