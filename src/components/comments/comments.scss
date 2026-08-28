@@ -1,0 +1,102 @@
+@use "../../scss/" as *;
+
+.comments-section {
+    background-color: rgba(#000, 0.6);
+    padding: 2rem;
+    border-radius: $border-radius;
+    margin-bottom: 2rem;
+    font-family: $font-family;
+
+    .comment-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        input, textarea {
+            width: 100%;
+            background-color: rgba($white, 0.1);
+            border: 1px solid rgba($white, 0.2);
+            color: $txt-color;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: $font-family;
+            outline: none;
+            transition: border-color 0.3s ease;
+
+            &:focus {
+                border-color: $main-color;
+            }
+        }
+
+        .btn-submit {
+            align-self: flex-end;
+            padding: 10px 25px;
+            background-color: $main-color;
+            color: $white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: darken($main-color, 10%);
+            }
+        }
+    }
+
+    .comments-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .comment-item {
+            display: flex;
+            gap: 15px;
+            background-color: rgba($white, 0.05);
+            padding: 15px;
+            border-radius: 5px;
+
+            .comment-avatar {
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                background-color: $main-color;
+                color: $white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                font-weight: bold;
+                flex-shrink: 0;
+            }
+
+            .comment-body {
+                flex: 1;
+
+                .comment-header {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 5px;
+
+                    .comment-name {
+                        font-weight: 600;
+                        color: $main-color;
+                    }
+
+                    .comment-date {
+                        font-size: 0.85rem;
+                        color: rgba($white, 0.5);
+                    }
+                }
+
+                .comment-content {
+                    font-size: 0.95rem;
+                    line-height: 1.5;
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}

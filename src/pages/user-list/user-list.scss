@@ -1,0 +1,13 @@
+@use "../../scss/" as *;
+
+.user-list {
+    margin-top: 3rem;
+    
+    &__empty {
+        text-align: center;
+        font-size: 1.5rem;
+        color: $txt-color;
+        opacity: 0.7;
+        margin: 5rem 0;
+    }
+}

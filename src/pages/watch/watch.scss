@@ -1,0 +1,239 @@
+@use "../../scss/" as *;
+
+.watch-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 1rem;
+
+    @include tablet {
+        flex-direction: column;
+    }
+
+    .watch-main {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .watch-notice {
+            background-color: rgba($main-color, 0.1);
+            border: 1px solid rgba($main-color, 0.5);
+            padding: 1rem;
+            border-radius: 5px;
+            color: $txt-color;
+            
+            p {
+                margin-bottom: 0.5rem;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            .small-note {
+                font-size: 0.85rem;
+                color: #ffb7b2;
+            }
+        }
+
+        .video-player {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background-color: #000;
+            border-radius: $border-radius;
+            overflow: hidden;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+        }
+
+        .servers-container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(#000, 0.6);
+            padding: 1rem 1.5rem;
+            border-radius: $border-radius;
+            gap: 1rem;
+            
+            @include mobile {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .server-label {
+                font-weight: 600;
+                color: $main-color;
+                font-size: 1.1rem;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                white-space: nowrap;
+            }
+
+            .servers-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .btn-server {
+                    padding: 8px 16px;
+                    border: 1px solid rgba($white, 0.2);
+                    background-color: transparent;
+                    color: $txt-color;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    font-family: $font-family;
+                    font-weight: 500;
+                    font-size: 0.9rem;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: rgba($main-color, 0.2);
+                        border-color: $main-color;
+                    }
+
+                    &.active {
+                        background-color: $main-color;
+                        border-color: $main-color;
+                        color: $white;
+                        box-shadow: 0 0 10px rgba($main-color, 0.5);
+                    }
+                }
+            }
+        }
+
+        .episodes-container {
+            background-color: rgba(#000, 0.6);
+            padding: 1.5rem;
+            border-radius: $border-radius;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            .seasons-wrapper, .episodes-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+
+                .label {
+                    font-weight: 600;
+                    color: $main-color;
+                    font-size: 1.05rem;
+                }
+
+                .seasons-list, .episodes-list {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 8px;
+
+                    button {
+                        padding: 8px 15px;
+                        background-color: rgba(255, 255, 255, 0.1);
+                        border: none;
+                        color: $txt-color;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-family: $font-family;
+                        font-weight: 500;
+                        font-size: 0.95rem;
+                        transition: all 0.2s ease;
+                        min-width: 45px;
+                        text-align: center;
+
+                        &:hover {
+                            background-color: rgba($main-color, 0.5);
+                        }
+
+                        &.active {
+                            background-color: $main-color;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .movie-info-container {
+            background-color: rgba(#000, 0.6);
+            padding: 2rem;
+            border-radius: $border-radius;
+            margin-bottom: 2rem;
+
+            .title {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                color: $main-color;
+            }
+
+            .genres {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-bottom: 1.5rem;
+
+                .genre-item {
+                    padding: 0.5rem 1rem;
+                    border: 2px solid $white;
+                    border-radius: 30px;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                }
+            }
+
+            .overview {
+                line-height: 1.6;
+                font-size: 1rem;
+                opacity: 0.8;
+                margin-bottom: 2rem;
+            }
+
+            .cast {
+                .cast-list {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+                    gap: 15px;
+
+                    .cast-item {
+                        &__img {
+                            padding-top: 150%;
+                            background-position: center;
+                            background-size: cover;
+                            border-radius: $border-radius;
+                            margin-bottom: 0.5rem;
+                        }
+                        &__name {
+                            font-size: 0.85rem;
+                            text-align: center;
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .watch-sidebar {
+        width: 350px;
+        flex-shrink: 0;
+
+        @include tablet {
+            width: 100%;
+        }
+
+        /* Tinh chỉnh movie list trong sidebar */
+        .movie-list {
+            .swiper-slide {
+                width: 100%;
+            }
+        }
+    }
+}

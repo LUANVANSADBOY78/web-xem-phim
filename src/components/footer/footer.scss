@@ -1,0 +1,86 @@
+@use "../../scss/" as *;
+.footer {
+    position: relative;
+    padding: 7rem 2rem;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--color-white);
+    /* overlay cho nền ảnh bớt “gắt” */
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient( 180deg, rgba(9, 12, 20, 0.35) 0%, rgba(9, 12, 20, 0.75) 60%, rgba(9, 12, 20, 0.9) 100%);
+        pointer-events: none;
+    }
+    &__content {
+        position: relative;
+        z-index: 1;
+        max-width: 1100px;
+        display: flex;
+        align-items: flex-start;
+        gap: 4rem;
+        /* logo + menus xếp dọc trên mobile */
+        @include mobile {
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+    }
+    &__content_logo {
+        min-width: 220px;
+    }
+    &__content__menus {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(150px, 1fr));
+        gap: 2.5rem 2rem;
+        @include mobile {
+            grid-template-columns: repeat(2, minmax(140px, 1fr));
+            gap: 2rem 1.5rem;
+        }
+    }
+    &__content__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        a {
+            color: rgba(255, 255, 255, 0.86);
+            text-decoration: none;
+            font-weight: 500;
+            line-height: 1.25;
+            transition: color 0.2s ease, transform 0.2s ease;
+            &:hover {
+                color: var(--color-secondary, #ffd166);
+                transform: translateX(4px);
+            }
+        }
+    }
+}
+
+
+/* logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    a {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        text-decoration: none;
+        color: var(--color-white);
+        transition: color 0.2s ease;
+        &:hover {
+            color: var(--color-secondary, #ffd166);
+        }
+    }
+    img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+    }
+}
