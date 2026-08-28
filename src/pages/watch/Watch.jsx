@@ -34,21 +34,21 @@ const Watch = () => {
         getDetail();
     }, [category, id]);
 
-    // Danh sách nguồn phát phim
+    // Danh sách nguồn phát phim không quảng cáo & có vietsub
     const getEmbedUrl = () => {
         if (category === cate.movie) {
             switch (currentServer) {
-                case 'server1': return `https://vidsrc.me/embed/movie?tmdb=${id}`;
-                case 'server2': return `https://vidsrc.in/embed/movie?tmdb=${id}`;
-                case 'server3': return `https://embed.su/embed/movie/${id}`;
-                default: return `https://vidsrc.me/embed/movie?tmdb=${id}`;
+                case 'server1': return `https://embed.su/embed/movie/${id}`;
+                case 'server2': return `https://vidsrc.me/embed/movie?tmdb=${id}`;
+                case 'server3': return `https://vidsrc.in/embed/movie?tmdb=${id}`;
+                default: return `https://embed.su/embed/movie/${id}`;
             }
         } else {
             switch (currentServer) {
-                case 'server1': return `https://vidsrc.me/embed/tv?tmdb=${id}&season=${currentSeason}&episode=${currentEpisode}`;
-                case 'server2': return `https://vidsrc.in/embed/tv?tmdb=${id}&season=${currentSeason}&episode=${currentEpisode}`;
-                case 'server3': return `https://embed.su/embed/tv/${id}/${currentSeason}/${currentEpisode}`;
-                default: return `https://vidsrc.me/embed/tv?tmdb=${id}&season=${currentSeason}&episode=${currentEpisode}`;
+                case 'server1': return `https://embed.su/embed/tv/${id}/${currentSeason}/${currentEpisode}`;
+                case 'server2': return `https://vidsrc.me/embed/tv?tmdb=${id}&season=${currentSeason}&episode=${currentEpisode}`;
+                case 'server3': return `https://vidsrc.in/embed/tv?tmdb=${id}&season=${currentSeason}&episode=${currentEpisode}`;
+                default: return `https://embed.su/embed/tv/${id}/${currentSeason}/${currentEpisode}`;
             }
         }
     };
